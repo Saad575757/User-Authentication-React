@@ -5,14 +5,18 @@ const Form =()=>{
   const [email, setEmail]= useState("");
   const [password, setPassword]= useState("");
   const [allEntry, setallEntry]= useState([]);
-  
 
   const submitIt=(e)=>{
     e.preventDefault();
-    const newEntry={id: new Date.getTime().toString(),email, password}
-    setallEntry([...allEntry, newEntry]);
-    setEmail('');
-    setPassword('');
+    if(email&& password){
+      const newEntry={email:email, password:password}
+      setallEntry([...allEntry, newEntry]);
+      setEmail('');
+      setPassword('');
+    }
+    else{
+      alert('fillout all details');
+    }
     
 
   }
@@ -21,11 +25,11 @@ const Form =()=>{
     <form onSubmit={submitIt}>
       <div>
         <label htmlFor='email' >Email</label>
-        <input name='email' id='email' type='text' value={email} onChange={(e)=>setEmail(e.target.value)} autoComplete='off' required="Enter some text"/>
+        <input name='email' id='email' type='text' value={email} onChange={(e)=>setEmail(e.target.value)} autoComplete='off' />
       </div>
       <div>
         <label htmlFor='password'>Password</label>
-        <input name='password' id='password' type='password' value={password} onChange={(e)=>setPassword(e.target.value)} required="Enter some password" autoComplete='off'/>
+        <input name='password' id='password' type='password' value={password} onChange={(e)=>setPassword(e.target.value)}  autoComplete='off'/>
       </div>
       <div>
         <button type='submit'>Login</button>
@@ -34,11 +38,10 @@ const Form =()=>{
     <div>
       {
         allEntry.map((currelement)=>{
-          const {id, email, password}= currelement;
           return(
-            <div className='styler'  key={id}>
-              <p>{email}</p>
-              <p>{password}</p>
+            <div className='styler'>
+              <p>{currelement.email}</p>
+              <p>{currelement.password}</p>
             </div>
           )
         })
