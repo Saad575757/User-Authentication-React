@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import './App.css';
 
 const Form =()=>{
   const [email, setEmail]= useState("");
@@ -22,7 +23,7 @@ const Form =()=>{
   }
   return(
     <>
-    <form onSubmit={submitIt}>
+    <form className='form' onSubmit={submitIt}>
       <div>
         <label htmlFor='email' >Email</label>
         <input name='email' id='email' type='text' value={email} onChange={(e)=>setEmail(e.target.value)} autoComplete='off' />
