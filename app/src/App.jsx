@@ -36,7 +36,7 @@ const Form =()=>{
         <button className='button' type='submit'>Login</button>
       </div>
     </form> 
-    <div>
+    <div className='data'>
       {
         allEntry.map((currelement)=>{
           return(
