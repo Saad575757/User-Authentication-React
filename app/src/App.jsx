@@ -16,7 +16,7 @@ const Form =()=>{
       setPassword('');
     }
     else{
-      alert('fillout all details');
+      alert('Please Fill Inputfield');
     }
     
 
