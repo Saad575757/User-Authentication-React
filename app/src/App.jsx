@@ -25,24 +25,25 @@ const Form =()=>{
     <>
     <form className='form' onSubmit={submitIt}>
       <div>
-        <label htmlFor='email' >Email</label>
-        <input name='email' id='email' type='text' value={email} onChange={(e)=>setEmail(e.target.value)} autoComplete='off' />
+        <label className='p_email' htmlFor='email' >Email</label>
+        <input className='input_email' name='email' id='email' type='text' value={email} onChange={(e)=>setEmail(e.target.value)} autoComplete='off' />
       </div>
       <div>
-        <label htmlFor='password'>Password</label>
-        <input name='password' id='password' type='password' value={password} onChange={(e)=>setPassword(e.target.value)}  autoComplete='off'/>
+        <label className='p_password' htmlFor='password'>Password</label>
+        <input className='input_password' name='password' id='password' type='password' value={password} onChange={(e)=>setPassword(e.target.value)}  autoComplete='off'/>
       </div>
       <div>
-        <button type='submit'>Login</button>
+        <button className='button' type='submit'>Login</button>
       </div>
     </form> 
     <div>
       {
         allEntry.map((currelement)=>{
           return(
-            <div className='styler'>
-              <p>{currelement.email}</p>
-              <p>{currelement.password}</p>
+            <div className='form_data'>
+              <h3 className='heading'>User Data</h3>
+              <p className='text_Email'> Email : "{currelement.email}"</p>
+              <p className='text_Password'> Password : "{currelement.password}"</p>
             </div>
           )
         })
